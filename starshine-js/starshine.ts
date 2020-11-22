@@ -6,7 +6,7 @@ globalJsDom();
 
 import * as p5 from 'p5';
 
-const sk = new p5((p: p5) => {
+new p5((p: p5) => {
 
   const writeGraphicsToPng = (g: any, filename: string) => {
     g.loadPixels();
@@ -17,7 +17,7 @@ const sk = new p5((p: p5) => {
   };
 
   p.setup = () => {
-    const render = p.createCanvas(100, 100);
+    p.createCanvas(100, 100);
     p.background(255, 128, 64);
     p.rect(50, 50, 25, 25);
 
