@@ -32,8 +32,9 @@ createHeadlessP5((p: p5, writeGraphicsToPng) => {
   
 //    p.filter(p.BLUR, 1.5);
 
-    writeGraphicsToPng(p, 'starshine.png');
-    process.exit(0);
+    writeGraphicsToPng(p, 'starshine.png').then(() => {
+      process.exit(0);
+    });
   };
 });
 
