@@ -1,20 +1,7 @@
-import * as globalJsDom from 'jsdom-global';
-import * as fs from 'fs';
-import {PNG} from 'pngjs';
-
-globalJsDom();
-
+import createHeadlessP5 from './createHeadlessP5';
 import * as p5 from 'p5';
 
-new p5((p: p5) => {
-
-  const writeGraphicsToPng = (g: any, filename: string) => {
-    g.loadPixels();
-    const png = new PNG({width: g.width, height: g.height});
-    png.data = Buffer.from(g.pixels);
-    var buffer = PNG.sync.write(png);
-    fs.writeFileSync(filename, buffer);
-  };
+createHeadlessP5((p: p5, writeGraphicsToPng) => {
 
   const star = (x: number, y: number, radius: number, alpha: number) => {
     p.push();
@@ -43,6 +30,8 @@ new p5((p: p5) => {
       );
     }
   
+//    p.filter(p.BLUR, 1.5);
+
     writeGraphicsToPng(p, 'starshine.png');
     process.exit(0);
   };
