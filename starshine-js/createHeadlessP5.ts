@@ -1,8 +1,11 @@
 import * as globalJsDom from 'jsdom-global';
 import * as fs from 'fs';
 import {PNG} from 'pngjs';
+import * as Canvas from 'canvas';
 
 globalJsDom();
+global.ImageData = Canvas.ImageData;
+window.ImageData = Canvas.ImageData;
 
 import * as p5 from 'p5';
 
